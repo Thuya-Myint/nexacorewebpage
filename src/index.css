@@ -155,9 +155,13 @@
      /* transform: rotate(360deg); */
    }
  }
- .skyglobal{
-   background-image: url('./assets/image/skyglobal.png');
+ .bgSoftwareTeam{
+   background-image: url('./assets/image/software-development-team.png');
    background-attachment: fixed;
    background-repeat: no-repeat;
-   background-size: contain;
+   background-size: cover;
+ }
+ .bg-Blur{
+   -webkit-backdrop-filter: blur(10px);
+   backdrop-filter: blur(10px);
  }
