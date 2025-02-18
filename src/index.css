@@ -160,8 +160,16 @@
    background-attachment: fixed;
    background-repeat: no-repeat;
    background-size: cover;
+   background-position: center;
  }
  .bg-Blur{
    -webkit-backdrop-filter: blur(10px);
    backdrop-filter: blur(10px);
+ }
+ .bgFooterTeam{
+   background-image: url('./assets/image/footerSoftwareTeam.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+
+   /* background-position: center; */
  }

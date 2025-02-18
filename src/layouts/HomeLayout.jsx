@@ -31,6 +31,7 @@ const HomeLayout = () => {
    const [showBoxThirteen, setShowBoxThirteen] = useState(false)
    const [showBoxFourteen, setShowBoxFourteen] = useState(false)
    const [showBoxFifteen, setShowBoxFifteen] = useState(false)
+   const [showBoxSixteen, setShowBoxSixteen] = useState(false)
 
 
    const serviceRef = useRef(null)
@@ -54,7 +55,8 @@ const HomeLayout = () => {
          setShowBoxTwelve(scrollY > 8000 && scrollY <= 14000)
          setShowBoxThirteen(scrollY > 14000 && scrollY <= 30000)
          setShowBoxFourteen(scrollY > 14000 && scrollY <= 30000)
-         setShowBoxFifteen(scrollY > 17000 && scrollY <= 30000)
+         setShowBoxFifteen(scrollY > 15000 && scrollY <= 30000)
+         setShowBoxSixteen(scrollY > 16000 && scrollY <= 30000)
       };
 
       window.addEventListener("scroll", handleScroll);
@@ -68,13 +70,13 @@ const HomeLayout = () => {
 
 
    return (
-      <div className='w-screen h-[3000vh] flex flex-col items-center '>
+      <div className='w-screen h-[20000px] flex flex-col items-center '>
          <Header isShown={isShown} hasBgColor={showBoxSeven} />
          <div className='w-full h-[100vh] flex flex-col items-center'>
             <h1 className='mt-[100px] mb-[40px] text-[1.2rem] font-[150]'>
                {TITLE}
             </h1>
-            <Logo />
+            <Logo where={"hero"} />
             <div className='w-[600px] text-center mt-[40px] mb-[40px]'>
                <h3 className=' text-[1rem] font-[150] '>
                   {SUBTITLE}
@@ -234,7 +236,7 @@ const HomeLayout = () => {
             </div>
             <div ref={aboutUsRef} className='z-[999]'>
                <div className={`w-full h-[100vh] inset-0 bg-white fixed transition-all duration-700 ${showBoxThirteen ? 'opacity-100 ' : 'opacity-0 '}`}>
-                  <div className={`mt-[12vh] p-4 w-1/2 transition-all duration-700 bg-black text-white absolute ${showBoxFourteen ? 'opacity-100 ' : ' opacity-0'}`}>
+                  <div className={`mt-[12vh] p-4 h-[170px] w-1/2 transition-all duration-700 bg-black text-white absolute ${showBoxFourteen ? 'opacity-100 left-0' : ' opacity-0 left-[-100%]'}`}>
                      <div className='text-[2rem] font-light'>About Us</div>
                      <p className='text-white-smoke mt-2 text-justify'>Our Company <span className='text-white'>NEXA CORE</span> has founded by 4 shareholders Mr.Aung Kyaw Nyunt, Mr.Bo Bo Myint, Mr.Aung Kyaw Myint, Mr.Kyaw Zay Ya.</p>
                      <div className='mt-[10px] opacity-50 text-[0.8rem]'>At the Year Of 2024.</div>
@@ -246,41 +248,19 @@ const HomeLayout = () => {
                         <FaArrowRight />
                      </button>
                   </div>
-                  <div className={`mt-[12vh] p-4 w-1/2 transition-all top-[30%] right-0 duration-700 bg-black text-white absolute ${showBoxFifteen ? 'opacity-100 ' : ' opacity-0'}`}>
-                     <div className='text-[2rem] font-light'>Our Goals</div>
+                  <div className={`mt-[12vh] h-[170px]  p-4 w-1/2 transition-all  right-0 duration-700 bg-black text-white absolute ${showBoxFifteen ? showBoxSixteen ? 'opacity-100 right-0 top-0 border-l-2 border-white' : 'top-[165px] opacity-100 right-0' : 'opacity-0 right-[-100%] top-[165px]'} }`}>
+                     < div className='text-[2rem] font-light'>Our Goals</div>
                      <p className='text-white-smoke mt-2 text-justify'>Our Company is a cutting-edge software development company specializing in web and cross-platform applications. With a strong focus on React and React Native, we build high-performance, scalable, and user-friendly solutions tailored to modern business needs. </p>
                   </div>
+               </div>
 
-                  {/* <div className='mt-[12vh] p-4 w-1/2 bg-black text-white relative'>
-                     <div className='text-[2rem] font-light'>Our Goals</div>
-                     <p className='text-white-smoke mt-2 text-justify'>Our Company is a cutting-edge software development company specializing in web and cross-platform applications. With a strong focus on React and React Native, we build high-performance, scalable, and user-friendly solutions tailored to modern business needs. </p>
-                  </div> */}
-
-                  {/* <div className='mt-[12vh] p-4 w-1/2 bg-black text-white relative'>
-                     <div className='text-[2rem] font-light'>Contact Us!</div>
-                     <div className='w-full'>
-                        <p className='text-[0.8rem] opacity-60 mb-1'>Subscribe Us!</p>
-                        <form className='w-full flex gap-4' onSubmit={(event) => {
-                           event.preventDefault()
-                        }}>
-                           <input type="text" className='w-2/3 bg-white p-2 rounded-md text-black' placeholder='Enter You E-Mail Address ' />
-                           <button className='bg-bat-blood px-2 rounded-md cursor-pointer active:opacity-70'>Subscribe</button>
-                        </form>
-                     </div>
-                     <div className='mt-4 flex justify-between'>
-                        <div className='text-white-smoke'>Hot Line Number</div>
-                        <div>+959 234 565 798</div>
-                     </div>
-                     <div className='mt-4 flex justify-between'>
-                        <div className='text-white-smoke'>Address</div>
-                        <div>+959 234 565 798</div>
-                     </div>
-                  </div> */}
+               <div className={`w-full  bg-white h-[50vh] z-[1000] fixed transition-all  duration-500 ${showBoxSixteen ? 'opacity-100 left-0 bottom-[0%] mb-[100px]' : 'opacity-0 bottom-[-100%] left-[0%]'}`}>
+                  <Footer />
                </div>
             </div>
          </div>
 
-      </div>
+      </div >
    );
 };
 

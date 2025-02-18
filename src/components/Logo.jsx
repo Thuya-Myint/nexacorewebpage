@@ -1,8 +1,8 @@
 import React from 'react'
 import nexacore from '../assets/Logo/nexa.png'
-const Logo = () => {
+const Logo = ({ where }) => {
    return (
-      <div className='relative  w-[120px] h-[120px] flex items-center justify-center' style={{
+      <div className={`relative h-[120px] w-[120px]   flex items-center justify-center`} style={{
          // backgroundColor: 'rgba(0,0,0,0.3)'
       }}>
          <img src={nexacore} alt="" className='w-[90px] h-[90px] absolute z-50' />
